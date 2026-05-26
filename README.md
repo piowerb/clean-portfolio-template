@@ -1,3 +1,7 @@
+![GitHub repo size](https://img.shields.io/github/repo-size/piowerb/clean-portfolio-template?style=for-the-badge)
+![GitHub license](https://img.shields.io/github/license/piowerb/clean-portfolio-template?style=for-the-badge)
+![GitHub stars](https://img.shields.io/github/stars/piowerb/clean-portfolio-template?style=for-the-badge)
+
 # Clean Portfolio Template
 
 A professional, responsive, and lightweight portfolio template designed for developers. No frameworks, no dependencies—just clean code.
@@ -9,6 +13,10 @@ A professional, responsive, and lightweight portfolio template designed for deve
 - **Accessible:** Semantic HTML, ARIA labels, and focus-visible support.
 - **Performance:** Optimized for speed (100/100 Lighthouse score).
 - **Responsive:** Mobile-first design with touch-swipe carousel.
+
+## 🌐 Live Demo
+You can see the live version of this template here: 
+[https://piowerb.github.io/clean-portfolio-template/](https://piowerb.github.io/clean-portfolio-template/)
 
 ## 🛠 Usage
 1. Clone the repository: `git clone https://github.com/piowerb/clean-portfolio-template.git`
