@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    
+    <meta name="description" content="Clean HTML/CSS/JS Portfolio Template. Building accessible and responsive web experiences.">
+    <meta name="keywords" content="portfolio, template, frontend, html, css, js, web development">
+    <meta name="author" content="@piowerb">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#FFFFFF">
+    
+    <meta property="og:title" content="Portfolio Template | Web Developer">
+    <meta property="og:description" content="Clean HTML/CSS/JS Portfolio Template showcasing frontend skills.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="#">
+    <meta property="og:image" content="https://placehold.co/1200x630/eaeaea/a9a9a9?text=Portfolio+Thumbnail">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Portfolio Template | Web Developer">
+    <meta name="twitter:description" content="Clean HTML/CSS/JS Portfolio Template.">
+    <meta name="twitter:image" content="https://placehold.co/1200x630/eaeaea/a9a9a9?text=Portfolio+Thumbnail">
+
+    <link rel="canonical" href="#">
+    <title>Portfolio Template | @piowerb</title>
+    
+    <link rel="preload" href="https://placehold.co/500x500/eaeaea/a9a9a9?text=@piowerb" as="image">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap"></noscript>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+
+    <script>
+        (function() {
+            // Theme setup
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.classList.add('dark-theme');
+            }
+            
+            // Language setup
+            let savedLang = localStorage.getItem('preferredLang');
+            if (!savedLang) {
+                const userLangShort = (navigator.language || navigator.userLanguage || "en").toLowerCase().substring(0, 2);
+                const supportedLangs = ['en', 'pl', 'ru', 'es', 'de', 'fr'];
+                savedLang = supportedLangs.includes(userLangShort) ? userLangShort : 'en';
+                localStorage.setItem('preferredLang', savedLang);
+            }
+            document.documentElement.lang = savedLang;
+        })();
+    </script>
+
+    <script src="main.js" defer></script>
+</head>
+<body>
+
+    <noscript>
+        <div class="noscript-banner">
+            JavaScript is required for the full experience (Language switching, Dark Mode, Animations). Please enable it in your browser settings.
+        </div>
+    </noscript>
+
+    <div id="nav-sentinel" style="position: absolute; top: 50px; width: 100%; height: 1px; visibility: hidden;"></div>
+
+    <div class="ambient-bg"></div>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <ul>
+                <li><a href="#home" class="tr" data-en="Home" data-pl="Start" data-ru="Домой" data-es="Inicio" data-de="Startseite" data-fr="Accueil">Home</a></li>
+                <li><a href="#about-practice" class="tr" data-en="Approach" data-pl="Podejście" data-ru="Подход" data-es="Enfoque" data-de="Ansatz" data-fr="Approche">Approach</a></li>
+                <li><a href="#services" class="tr" data-en="Services" data-pl="Usługi" data-ru="Услуги" data-es="Servicios" data-de="Leistungen" data-fr="Services">Services</a></li>
+                <li><a href="#portfolio" class="tr" data-en="Portfolio" data-pl="Portfolio" data-ru="Портфолио" data-es="Portafolio" data-de="Portfolio" data-fr="Portefeuille">Portfolio</a></li>
+                <li><a href="#about-me" class="tr" data-en="About" data-pl="O mnie" data-ru="Обо мне" data-es="Sobre mí" data-de="Über mich" data-fr="À propos">About</a></li>
+                <li><a href="#contact" class="tr" data-en="Contact" data-pl="Kontakt" data-ru="Контакт" data-es="Contacto" data-de="Kontakt" data-fr="Contact">Contact</a></li>
+            </ul>
+            
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <svg id="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <div class="lang-switch">
+                    <select id="langSelect" aria-label="Select language">
+                        <option value="en">EN</option>
+                        <option value="pl">PL</option>
+                        <option value="ru">RU</option>
+                        <option value="es">ES</option>
+                        <option value="de">DE</option>
+                        <option value="fr">FR</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <img src="https://placehold.co/500x500/eaeaea/a9a9a9?text=@piowerb" alt="" aria-hidden="true" class="hero-watermark" width="500" height="500" fetchpriority="high">
+            
+        <div class="hero-content">
+                <h1 class="tr" data-en="Creative Frontend Developer" data-pl="Kreatywny Frontend Developer" data-ru="Креативный Фронтенд Разработчик" data-es="Desarrollador Frontend Creativo" data-de="Kreativer Frontend-Entwickler" data-fr="Développeur Frontend Créatif">Creative Frontend Developer</h1>
+                <p class="tr" data-en="Building accessible and responsive web experiences." data-pl="Tworzenie dostępnych i responsywnych stron." data-ru="Создание доступных и адаптивных веб-сайтов." data-es="Creando experiencias web accesibles y responsivas." data-de="Erstellung barrierefreier und responsiver Web-Erlebnisse." data-fr="Création d'expériences web accessibles et réactives.">Building accessible and responsive web experiences.</p>
+                <a href="#portfolio" class="btn tr" data-en="View my work" data-pl="Zobacz moje projekty" data-ru="Посмотреть работы" data-es="Ver mi trabajo" data-de="Meine Arbeit ansehen" data-fr="Voir mon travail">View my work</a>
+            </div>
+        </section>
+
+        <div class="microtext tr reveal-up" data-en="Clean code. Smart design." data-pl="Czysty kod. Przemyślany design." data-ru="Чистый код. Умный дизайн." data-es="Código limpio. Diseño inteligente." data-de="Sauberer Code. Intelligentes Design." data-fr="Code propre. Design intelligent.">Clean code. Smart design.</div>
+
+        <section id="about-practice">
+            <h2 class="tr reveal-up" data-en="My Approach" data-pl="Moje podejście" data-ru="Мой подход" data-es="Mi enfoque" data-de="Mein Ansatz" data-fr="Mon approche">My Approach</h2>
+            <p class="lead tr reveal-up" data-en="I build fast, interactive websites using modern technologies." data-pl="Tworzę szybkie, interaktywne strony korzystając z nowoczesnych technologii." data-ru="Я создаю быстрые, интерактивные сайты с использованием современных технологий." data-es="Construyo sitios web rápidos e interactivos con tecnologías modernas." data-de="Ich entwickle schnelle, interaktive Websites mit modernen Technologien." data-fr="Je crée des sites web rapides et interactifs avec des technologies modernes.">I build fast, interactive websites using modern technologies.</p>
+            <p class="tr reveal-up" data-en="My focus is on performance, accessibility, and clean architecture." data-pl="Skupiam się na wydajności, dostępności i czystej architekturze." data-ru="Мой фокус — на производительности, доступности и чистой архитектуре." data-es="Me enfoco en el rendimiento, la accesibilidad y la arquitectura limpia." data-de="Mein Fokus liegt auf Leistung, Barrierefreiheit und sauberer Architektur." data-fr="Je me concentre sur la performance, l'accessibilité et une architecture propre.">My focus is on performance, accessibility, and clean architecture.</p>
+            <p class="tr reveal-up" data-en="Every project is an opportunity to solve problems creatively." data-pl="Każdy projekt to okazja do kreatywnego rozwiązywania problemów." data-ru="Каждый проект — это возможность для творческого решения проблем." data-es="Cada proyecto es una oportunidad para resolver problemas de forma creativa." data-de="Jedes Projekt ist eine Gelegenheit, Probleme kreativ zu lösen." data-fr="Chaque projet est une opportunité de résoudre des problèmes de manière créative.">Every project is an opportunity to solve problems creatively.</p>
+            
+        <div class="carousel-wrapper reveal-up" id="video-wrapper">
+                <div class="carousel-track smooth-transition" id="video-track">
+                    
+                    <div class="carousel-slide">
+                        <div class="video-demo-container">
+                            <video playsinline preload="none" poster="https://placehold.co/800x450/eaeaea/a9a9a9?text=Video+Poster+1" width="800" height="450"></video>
+                            <div class="fake-play-btn">
+                                <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <div class="video-overlay">
+                                <span class="tr" data-en="Your video goes here" data-pl="Tutaj możesz wstawić swoje wideo" data-ru="Здесь будет ваше видео" data-es="Tu video va aquí" data-de="Dein Video kommt hierher" data-fr="Votre vidéo va ici">Tutaj możesz wstawić swoje wideo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <div class="video-demo-container">
+                            <video playsinline preload="none" poster="https://placehold.co/800x450/eaeaea/a9a9a9?text=Video+Poster+2" width="800" height="450"></video>
+                            <div class="fake-play-btn">
+                                <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <div class="video-overlay">
+                                <span class="tr" data-en="Your video goes here" data-pl="Tutaj możesz wstawić swoje wideo" data-ru="Здесь будет ваше видео" data-es="Tu video va aquí" data-de="Dein Video kommt hierher" data-fr="Votre vidéo va ici">Tutaj możesz wstawić swoje wideo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <div class="video-demo-container">
+                            <video playsinline preload="none" poster="https://placehold.co/800x450/eaeaea/a9a9a9?text=Video+Poster+3" width="800" height="450"></video>
+                            <div class="fake-play-btn">
+                                <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <div class="video-overlay">
+                                <span class="tr" data-en="Your video goes here" data-pl="Tutaj możesz wstawić swoje wideo" data-ru="Здесь будет ваше видео" data-es="Tu video va aquí" data-de="Dein Video kommt hierher" data-fr="Votre vidéo va ici">Tutaj możesz wstawić swoje wideo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="carousel-btn prev" id="btn-prev-vid" aria-label="Previous video">&#10094;</button>
+                <button class="carousel-btn next" id="btn-next-vid" aria-label="Next video">&#10095;</button>
+            </div>
+        </section>
+
+        <div class="microtext tr reveal-up" data-en="Simplicity is key." data-pl="Prostota to klucz." data-ru="Простота — это ключ." data-es="La simplicidad es clave." data-de="Einfachheit ist der Schlüssel." data-fr="La simplicité est la clé.">Simplicity is key.</div>
+
+        <section id="services">
+            <h2 class="tr reveal-up" data-en="Services" data-pl="Usługi" data-ru="Услуги" data-es="Servicios" data-de="Leistungen" data-fr="Services">Services</h2>
+            
+            <div class="grid">
+                <div class="card reveal-up">
+                    <h3 class="tr" data-en="Web Development" data-pl="Tworzenie Stron" data-ru="Веб-разработка" data-es="Desarrollo Web" data-de="Webentwicklung" data-fr="Développement Web">Web Development</h3>
+                    <p class="tr" data-en="Custom websites built from scratch." data-pl="Strony internetowe tworzone od podstaw." data-ru="Пользовательские сайты с нуля." data-es="Sitios web personalizados creados desde cero." data-de="Maßgeschneiderte Websites von Grund auf neu." data-fr="Sites web sur mesure créés de zéro.">Custom websites built from scratch.</p>
+                </div>
+                <div class="card reveal-up">
+                    <h3 class="tr" data-en="UI/UX Design" data-pl="Projektowanie UI/UX" data-ru="UI/UX Дизайн" data-es="Diseño UI/UX" data-de="UI/UX Design" data-fr="Design UI/UX">UI/UX Design</h3>
+                    <p class="tr" data-en="Intuitive and beautiful user interfaces." data-pl="Intuicyjne i estetyczne interfejsy." data-ru="Интуитивно понятные и красивые интерфейсы." data-es="Interfaces de usuario intuitivas y hermosas." data-de="Intuitive und schöne Benutzeroberflächen." data-fr="Interfaces utilisateur intuitives et esthétiques.">Intuitive and beautiful user interfaces.</p>
+                </div>
+                <div class="card reveal-up">
+                    <h3 class="tr" data-en="Consulting" data-pl="Doradztwo" data-ru="Консалтинг" data-es="Consultoría" data-de="Beratung" data-fr="Consulting">Consulting</h3>
+                    <p class="tr" data-en="Technical advice and code reviews." data-pl="Wsparcie techniczne i przeglądy kodu." data-ru="Технические консультации и обзоры кода." data-es="Asesoramiento técnico y revisiones de código." data-de="Technische Beratung und Code-Reviews." data-fr="Conseils techniques et revues de code.">Technical advice and code reviews.</p>
+                </div>
+            </div>
+            
+            <div class="upcoming tr reveal-up" data-en="Available for freelance opportunities." data-pl="Otwarty na zlecenia freelance." data-ru="Доступен для фриланс-проектов." data-es="Disponible para proyectos freelance." data-de="Verfügbar für Freelance-Projekte." data-fr="Disponible pour des projets en freelance.">
+                Available for freelance opportunities.
+            </div>
+
+            <div class="sessions-rating reveal-up">
+                <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span class="tr" data-en="5.0 Rating from Clients" data-pl="Ocena 5.0 od Klientów" data-ru="Оценка 5.0 от клиентов" data-es="Valoración 5.0 de los clientes" data-de="5.0 Bewertung von Kunden" data-fr="Note de 5.0 des clients">5.0 Rating from Clients</span>
+            </div>
+        </section>
+
+        <div class="microtext tr reveal-up" data-en="Selected works." data-pl="Wybrane realizacje." data-ru="Избранные работы." data-es="Trabajos seleccionados." data-de="Ausgewählte Arbeiten." data-fr="Travaux sélectionnés.">Selected works.</div>
+
+        <section id="portfolio">
+            <h2 class="tr reveal-up" data-en="Portfolio" data-pl="Portfolio" data-ru="Портфолио" data-es="Portafolio" data-de="Portfolio" data-fr="Portefeuille">Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-card reveal-up">
+                    <img src="https://placehold.co/600x400/eaeaea/a9a9a9?text=Project+1" alt="Project 1" loading="lazy">
+                    <div class="portfolio-content">
+                        <h3 class="tr" data-en="E-commerce Platform" data-pl="Platforma E-commerce" data-ru="Платформа электронной коммерции" data-es="Plataforma de E-commerce" data-de="E-Commerce Plattform" data-fr="Plateforme E-commerce">E-commerce Platform</h3>
+                        <div class="tech-tags">
+                            <span>React</span><span>Node.js</span><span>Stripe</span>
+                        </div>
+                        <p class="tr" data-en="A full-stack e-commerce solution with dynamic cart and secure payment integration." data-pl="Aplikacja e-commerce full-stack z dynamicznym koszykiem i bezpiecznymi płatnościami." data-ru="Полнофункциональное решение для электронной коммерции с динамической корзиной." data-es="Una solución de e-commerce completa con carrito dinámico." data-de="Eine Full-Stack E-Commerce-Lösung mit dynamischem Warenkorb." data-fr="Une solution e-commerce complète avec panier dynamique.">A full-stack e-commerce solution with dynamic cart and secure payment integration.</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="btn-small tr" data-en="Live Demo" data-pl="Wersja Live" data-ru="Демо" data-es="Demo en vivo" data-de="Live-Demo" data-fr="Démo">Live Demo</a>
+                            <a href="#" class="btn-small btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card reveal-up">
+                    <img src="https://placehold.co/600x400/eaeaea/a9a9a9?text=Project+2" alt="Project 2" loading="lazy">
+                    <div class="portfolio-content">
+                        <h3 class="tr" data-en="Financial Dashboard" data-pl="Panel Finansowy" data-ru="Финансовый дашборд" data-es="Panel Financiero" data-de="Finanz-Dashboard" data-fr="Tableau de bord financier">Financial Dashboard</h3>
+                        <div class="tech-tags">
+                            <span>Vue.js</span><span>Chart.js</span><span>Tailwind</span>
+                        </div>
+                        <p class="tr" data-en="An analytical dashboard for tracking expenses, revenue, and generating visual reports." data-pl="Analityczny panel do śledzenia wydatków, przychodów i generowania raportów wizualnych." data-ru="Аналитический дашборд для отслеживания расходов и доходов." data-es="Un panel analítico para seguimiento de gastos e ingresos." data-de="Ein analytisches Dashboard zur Verfolgung von Ausgaben und Einnahmen." data-fr="Un tableau de bord analytique pour le suivi des dépenses.">An analytical dashboard for tracking expenses, revenue, and generating visual reports.</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="btn-small tr" data-en="Live Demo" data-pl="Wersja Live" data-ru="Демо" data-es="Demo en vivo" data-de="Live-Demo" data-fr="Démo">Live Demo</a>
+                            <a href="#" class="btn-small btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card reveal-up">
+                    <img src="https://placehold.co/600x400/eaeaea/a9a9a9?text=Project+3" alt="Project 3" loading="lazy">
+                    <div class="portfolio-content">
+                        <h3 class="tr" data-en="AI Chat Application" data-pl="Aplikacja Chat AI" data-ru="AI Чат-приложение" data-es="Aplicación de Chat IA" data-de="KI Chat-Anwendung" data-fr="Application de Chat IA">AI Chat Application</h3>
+                        <div class="tech-tags">
+                            <span>TypeScript</span><span>OpenAI API</span><span>CSS Modules</span>
+                        </div>
+                        <p class="tr" data-en="A real-time messaging interface connected to AI models for instant responses." data-pl="Interfejs wiadomości w czasie rzeczywistym połączony z modelami AI." data-ru="Интерфейс обмена сообщениями в реальном времени с ИИ." data-es="Una interfaz de mensajería en tiempo real conectada a IA." data-de="Eine Echtzeit-Messaging-Schnittstelle, die mit KI-Modellen verbunden ist." data-fr="Une interface de messagerie en temps réel connectée à l'IA.">A real-time messaging interface connected to AI models for instant responses.</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="btn-small tr" data-en="Live Demo" data-pl="Wersja Live" data-ru="Демо" data-es="Demo en vivo" data-de="Live-Demo" data-fr="Démo">Live Demo</a>
+                            <a href="#" class="btn-small btn-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="microtext tr reveal-up" data-en="Always learning." data-pl="Ciągły rozwój." data-ru="Постоянное обучение." data-es="Siempre aprendiendo." data-de="Ständiges Lernen." data-fr="Toujours en apprentissage.">Always learning.</div>
+
+        <section id="philosophy">
+            <h2 class="tr reveal-up" data-en="Technologies" data-pl="Technologie" data-ru="Технологии" data-es="Tecnologías" data-de="Technologien" data-fr="Technologies">Technologies</h2>
+            <div>
+                <p class="lead tr reveal-up" 
+                   data-en="I specialize in the modern frontend stack, creating scalable applications." 
+                   data-pl="Specjalizuję się w nowoczesnym stosie frontendowym, tworząc skalowalne aplikacje." 
+                   data-ru="Я специализируюсь на современном фронтенд-стеке, создавая масштабируемые приложения."
+                   data-es="Me especializo en el stack frontend moderno, creando aplicaciones escalables."
+                   data-de="Ich bin auf den modernen Frontend-Stack spezialisiert und erstelle skalierbare Anwendungen."
+                   data-fr="Je me spécialise dans la stack frontend moderne, en créant des applications évolutives.">
+                    I specialize in the modern frontend stack, creating scalable applications.
+                </p>
+                <p class="tr reveal-up" 
+                   data-en="My daily tools include HTML5, CSS3/SASS, JavaScript (ES6+), and React." 
+                   data-pl="Na co dzień pracuję z HTML5, CSS3/SASS, JavaScript (ES6+) oraz React." 
+                   data-ru="В мой повседневный набор инструментов входят HTML5, CSS3/SASS, JavaScript (ES6+) и React."
+                   data-es="Mis herramientas diarias incluyen HTML5, CSS3/SASS, JavaScript (ES6+) y React."
+                   data-de="Zu meinen täglichen Werkzeugen gehören HTML5, CSS3/SASS, JavaScript (ES6+) und React."
+                   data-fr="Mes outils quotidiens incluent HTML5, CSS3/SASS, JavaScript (ES6+) et React.">
+                    My daily tools include HTML5, CSS3/SASS, JavaScript (ES6+), and React.
+                </p>
+                <p class="tr reveal-up" 
+                   data-en="I also have experience with Node.js and various API integrations." 
+                   data-pl="Mam również doświadczenie z Node.js i różnymi integracjami API." 
+                   data-ru="У меня также есть опыт работы с Node.js и интеграцией различных API."
+                   data-es="También tengo experiencia con Node.js y diversas integraciones de API."
+                   data-de="Ich habe auch Erfahrung mit Node.js und verschiedenen API-Integrationen."
+                   data-fr="J'ai également de l'expérience avec Node.js et diverses intégrations d'API.">
+                    I also have experience with Node.js and various API integrations.
+                </p>
+            </div>
+
+            <div class="collage-grid">
+                <img src="https://placehold.co/400x400/eaeaea/a9a9a9?text=Tech+1" alt="Tech icon" class="reveal-up lightbox-trigger" width="400" height="400" loading="lazy" decoding="async">
+                <img src="https://placehold.co/400x400/eaeaea/a9a9a9?text=Tech+2" alt="Tech icon" class="reveal-up lightbox-trigger" width="400" height="400" loading="lazy" decoding="async">
+                <img src="https://placehold.co/400x400/eaeaea/a9a9a9?text=Tech+3" alt="Tech icon" class="reveal-up lightbox-trigger" width="400" height="400" loading="lazy" decoding="async">
+                <img src="https://placehold.co/400x400/eaeaea/a9a9a9?text=Tech+4" alt="Tech icon" class="reveal-up lightbox-trigger" width="400" height="400" loading="lazy" decoding="async">
+            </div>
+            <p class="media-caption tr reveal-up" data-en="My Toolkit" data-pl="Mój warsztat" data-ru="Мой инструментарий" data-es="Mi conjunto de herramientas" data-de="Mein Werkzeugkasten" data-fr="Ma boîte à outils">My Toolkit</p>
+        </section>
+
+        <div class="microtext tr reveal-up" data-en="Let's connect." data-pl="Bądźmy w kontakcie." data-ru="Давайте на связи." data-es="Conectemos." data-de="Lass uns in Kontakt treten." data-fr="Restons en contact.">Let's connect.</div>
+
+        <section id="about-me">
+            <h2 class="tr reveal-up" data-en="About Me" data-pl="O mnie" data-ru="Обо мне" data-es="Sobre mí" data-de="Über mich" data-fr="À propos de moi">About Me</h2>
+            <div class="about-flex">
+                <div class="profile-img-wrapper reveal-up">
+                    <img src="https://placehold.co/400x533/eaeaea/a9a9a9?text=Portrait" alt="Portrait Placeholder" class="profile-img" width="400" height="533" loading="lazy" decoding="async">
+                </div>
+                <div>
+                    <p class="tr reveal-up" 
+                       data-en="I am a passionate web developer with a keen eye for design." 
+                       data-pl="Jestem programistą z pasją i dobrym okiem do designu." 
+                       data-ru="Я увлеченный веб-разработчик с хорошим вкусом к дизайну."
+                       data-es="Soy un desarrollador web apasionado con buen ojo para el diseño."
+                       data-de="Ich bin ein leidenschaftlicher Webentwickler mit einem guten Auge für Design."
+                       data-fr="Je suis un développeur web passionné avec un bon œil pour le design.">
+                        I am a passionate web developer with a keen eye for design.
+                    </p>
+                    <p class="tr reveal-up" 
+                       data-en="With a background in creative fields, I bridge the gap between technical implementation and visual aesthetics." 
+                       data-pl="Dzięki doświadczeniu w branżach kreatywnych, łączę techniczne wdrożenia z wizualną estetyką." 
+                       data-ru="Благодаря опыту в творческих сферах, я объединяю техническую реализацию и визуальную эстетику."
+                       data-es="Con experiencia en campos creativos, cierro la brecha entre la implementación técnica y la estética visual."
+                       data-de="Mit einem Hintergrund in kreativen Bereichen schließe ich die Lücke zwischen technischer Umsetzung und visueller Ästhetik."
+                       data-fr="Avec une expérience dans les domaines créatifs, je fais le pont entre la mise en œuvre technique et l'esthétique visuelle.">
+                        With a background in creative fields, I bridge the gap between technical implementation and visual aesthetics.
+                    </p>
+
+                    <p class="tr reveal-up" 
+                    data-en="Based in Europe, working with clients globally." 
+                    data-pl="Mieszkam w Europie, współpracuję z klientami z całego świata." 
+                    data-ru="Базируюсь в Европе, работаю с клиентами по всему миру."
+                    data-es="Con base en Europa, trabajando con clientes a nivel global."
+                    data-de="Ansässig in Europa, arbeite ich mit Kunden weltweit zusammen."
+                    data-fr="Basé en Europe, je travaille avec des clients du monde entier.">
+                        Based in Europe, working with clients globally.
+                    </p>
+
+                    <p class="tr reveal-up" 
+                       data-en="I hold certifications in modern web development frameworks and accessibility standards." 
+                       data-pl="Posiadam certyfikaty z nowoczesnych frameworków oraz standardów dostępności (WCAG)." 
+                       data-ru="У меня есть сертификаты по современным фреймворкам и стандартам доступности."
+                       data-es="Tengo certificaciones en frameworks modernos de desarrollo web y estándares de accesibilidad."
+                       data-de="Ich besitze Zertifikate in modernen Webentwicklungs-Frameworks und Barrierefreiheitsstandards."
+                       data-fr="Je détiens des certifications dans les frameworks de développement web modernes et les normes d'accessibilité.">
+                        I hold certifications in modern web development frameworks and accessibility standards.
+                    </p>
+                </div>
+            </div>
+
+            <div class="certificate-wrapper">
+                <div class="certificate-images-container">
+                    <img src="https://placehold.co/300x424/eaeaea/a9a9a9?text=Certificate" alt="Certificate 1" class="certificate-img reveal-up lightbox-trigger" width="300" height="424" loading="lazy" decoding="async">
+                    <img src="https://placehold.co/300x424/eaeaea/a9a9a9?text=Certificate" alt="Certificate 2" class="certificate-img reveal-up lightbox-trigger" width="300" height="424" loading="lazy" decoding="async">
+                </div>
+                <p class="media-caption tr reveal-up" data-en="My Certifications." data-pl="Moje certyfikaty." data-ru="Мои сертификаты." data-es="Mis certificaciones." data-de="Meine Zertifikate." data-fr="Mes certifications.">My Certifications.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <img src="https://placehold.co/600x400/eaeaea/a9a9a9?text=Image+1" alt="Gallery 1" class="gallery-item reveal-up lightbox-trigger" width="600" height="400" loading="lazy" decoding="async">
+                <img src="https://placehold.co/600x400/eaeaea/a9a9a9?text=Image+2" alt="Gallery 2" class="gallery-item reveal-up lightbox-trigger" width="600" height="400" loading="lazy" decoding="async">
+                <img src="https://placehold.co/600x400/eaeaea/a9a9a9?text=Image+3" alt="Gallery 3" class="gallery-item reveal-up lightbox-trigger" width="600" height="400" loading="lazy" decoding="async">
+            </div>
+
+            <div class="quote-wrapper reveal-up">
+                <blockquote class="tr" 
+                            data-en="&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&quot;" 
+                            data-pl="&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&quot;" 
+                            data-ru="&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&quot;"
+                            data-es="&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&quot;"
+                            data-de="&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&quot;"
+                            data-fr="&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&quot;">
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                </blockquote>
+                <cite class="tr" data-en="— Random Quote" data-pl="— Losowy Cytat" data-ru="— Случайная Цитата" data-es="— Cita Aleatoria" data-de="— Zufälliges Zitat" data-fr="— Citation Aléatoire">— Random Quote</cite>
+            </div>
+            
+        </section>
+
+        <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Podgląd zdjęcia">
+            <span class="lightbox-close" id="btn-close-lightbox" role="button" tabindex="0" aria-label="Close lightbox">&times;</span>
+            <button class="lightbox-btn prev" id="btn-prev-lightbox" aria-label="Previous image">&#10094;</button>
+            <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Enlarged view" loading="lazy" decoding="async" width="800" height="600">
+            <button class="lightbox-btn next" id="btn-next-lightbox" aria-label="Next image">&#10095;</button>
+        </div>
+
+        <div class="microtext tr reveal-up" data-en="Get in touch." data-pl="Napisz do mnie." data-ru="Свяжитесь со мной." data-es="Ponte en contacto." data-de="Nehmen Sie Kontakt auf." data-fr="Contactez-moi.">Get in touch.</div>
+
+        <section id="contact">
+            <h2 class="tr reveal-up" data-en="Contact" data-pl="Kontakt" data-ru="Контакты" data-es="Contacto" data-de="Kontakt" data-fr="Contact">Contact</h2>
+            <p class="tr reveal-up" 
+               data-en="Have a project in mind? Let's discuss it." 
+               data-pl="Masz w głowie projekt? Porozmawiajmy o nim." 
+               data-ru="Есть идея для проекта? Давайте обсудим."
+               data-es="¿Tienes un proyecto en mente? Hablemos de ello."
+               data-de="Haben Sie ein Projekt im Sinn? Lassen Sie uns darüber sprechen."
+               data-fr="Vous avez un projet en tête ? Parlons-en.">
+                Have a project in mind? Let's discuss it.
+            </p>       
+            <form id="contactForm" action="#" method="POST">
+                <input type="text" name="_gotcha" id="honeypot" class="honeypot-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+                
+                <label for="contactName" class="sr-only tr" data-en="Name" data-pl="Imię" data-ru="Имя" data-es="Nombre" data-de="Name" data-fr="Nom">Name</label>
+                <input type="text" name="name" id="contactName" class="tr-ph reveal-up" data-en="Name" data-pl="Imię" data-ru="Имя" data-es="Nombre" data-de="Name" data-fr="Nom" placeholder="Name" required>
+                
+                <label for="contactEmail" class="sr-only tr" data-en="Email" data-pl="Email" data-ru="Email" data-es="Correo" data-de="E-Mail" data-fr="Email">Email</label>
+                <input type="email" name="email" id="contactEmail" class="tr-ph reveal-up" data-en="Email" data-pl="Email" data-ru="Email" data-es="Correo" data-de="E-Mail" data-fr="Email" placeholder="Email" required>
+                
+                <label for="contactMessage" class="sr-only tr" data-en="Message" data-pl="Wiadomość" data-ru="Сообщение" data-es="Mensaje" data-de="Nachricht" data-fr="Message">Message</label>
+                <textarea name="message" id="contactMessage" class="tr-ph reveal-up" data-en="Message" data-pl="Wiadomość" data-ru="Сообщение" data-es="Mensaje" data-de="Nachricht" data-fr="Message" placeholder="Message" required></textarea>
+                
+                <button type="submit" class="btn tr reveal-up" data-en="Send message" data-pl="Wyślij wiadomość" data-ru="Отправить сообщение" data-es="Enviar mensaje" data-de="Nachricht senden" data-fr="Envoyer le message">Send message</button>
+                <p id="formStatus" class="form-status tr" data-en="Message sent successfully!" data-pl="Wiadomość została wysłana!" data-ru="Сообщение успешно отправлено!" data-es="¡Mensaje enviado con éxito!" data-de="Nachricht erfolgreich gesendet!" data-fr="Message envoyé avec succès !">Message sent successfully!</p>
+            </form>
+
+            <div class="contact-info reveal-up">
+                <p>Email: <a href="mailto:hello@example.com">hello@example.com</a></p>
+                <p>Location: <span class="tr" data-en="Available globally" data-pl="Dostępny zdalnie na całym świecie" data-ru="Доступен по всему миру" data-es="Disponible globalmente" data-de="Weltweit verfügbar" data-fr="Disponible mondialement">Available globally</span></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="tr reveal-up" data-en="Designed and built with passion." data-pl="Zaprojektowane i zakodowane z pasją." data-ru="Разработано и создано с душой." data-es="Diseñado y construido con pasión." data-de="Entworfen und gebaut mit Leidenschaft." data-fr="Conçu et développé avec passion.">
+            Designed and built with passion.
+        </p>
+        
+        <div class="social-media-container">
+            <p class="social-title tr reveal-up" data-en="Find me online" data-pl="Znajdziesz mnie w sieci" data-ru="Найдите меня в сети" data-es="Encuéntrame en línea" data-de="Finden Sie mich online" data-fr="Retrouvez-moi en ligne">Find me online</p>
+            
+            <div class="social-links reveal-up">
+                <a href="#" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="https://github.com/piowerb" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <p class="footer-copyright reveal-up">
+            &copy; <span id="current-year"></span> Template by <a href="https://github.com/piowerb" target="_blank" rel="noopener noreferrer">@piowerb</a>.
+        </p>
+        
+        <a href="#home" class="footer-brand-block reveal-up">
+            <img src="https://placehold.co/500x500/eaeaea/a9a9a9?text=@piowerb" alt="" aria-hidden="true" class="footer-brand-logo" width="50" height="50" loading="lazy" decoding="async">
+            <span class="footer-brand-name tr" data-en="Portfolio Template" data-pl="Szablon Portfolio" data-ru="Шаблон портфолио" data-es="Plantilla de Portafolio" data-de="Portfolio-Vorlage" data-fr="Modèle de portefeuille">Portfolio Template</span>
+        </a>        
+        
+        <div class="privacy-accordion">
+            <button class="privacy-toggle" aria-expanded="false" aria-controls="privacy-content" id="btn-toggle-privacy">
+                <span class="tr" data-en="Privacy Policy" data-pl="Polityka Prywatności" data-ru="Политика конфиденциальности" data-es="Política de privacidad" data-de="Datenschutz" data-fr="Politique de confidentialité">Privacy Policy</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+        <div id="privacy-content" class="privacy-content">
+            <p class="tr" style="font-size: 0.65rem; opacity: 0.6; line-height: 1.5;" 
+            data-en="This is a demo portfolio template. No tracking cookies are used. The contact form is for demonstration purposes only." 
+            data-pl="To jest demonstracyjny szablon portfolio. Nie używamy śledzących cookies. Formularz kontaktowy służy tylko celom pokazowym." 
+            data-ru="Это демонстрационный шаблон портфолио. Отслеживающие cookies не используются. Контактная форма предназначена только для демонстрации."
+            data-es="Esta es una plantilla de portafolio de demostración. No se utilizan cookies de seguimiento. El formulario es solo para fines de demostración."
+            data-de="Dies ist eine Demo-Portfolio-Vorlage. Es werden keine Tracking-Cookies verwendet. Das Kontaktformular dient nur zu Demonstrationszwecken."
+            data-fr="Il s'agit d'un modèle de portefeuille de démonstration. Aucun cookie de suivi n'est utilisé. Le formulaire est uniquement à des fins de démonstration.">
+                This is a demo portfolio template. No tracking cookies are used. The contact form is for demonstration purposes only.
+            </p>
+        </div>
+        </div>
+    </footer>
+
+    <a href="https://github.com/piowerb" target="_blank" rel="noopener noreferrer" class="template-watermark-badge" aria-label="Template by @piowerb on GitHub">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+        </svg>
+        <span>Made by @piowerb</span>
+    </a>
+
+</body>
+</html>
