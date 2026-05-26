@@ -1,5 +1,4 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/piowerb/clean-portfolio-template?style=for-the-badge)
-![GitHub license](https://img.shields.io/github/license/piowerb/clean-portfolio-template?style=for-the-badge)
 ![GitHub last commit](https://img.shields.io/github/last-commit/piowerb/clean-portfolio-template?style=for-the-badge)
 
 # Personal Portfolio Website
